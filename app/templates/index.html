@@ -1,27 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="/add-event" method = "POST">
-<label for="name_of_event">Name of Event</label>
-<input type="text" name = "name_of_event" id = "name_of_event">
 
-<label for="date">Date</label>
-<input type="date" value = "yyyy-mm-dd" name="date" id="date">
+<ul>
 
-<label for="number_of_guests">Number of Guest(s)</label>
-<input type="number" name = "number_of_guests" id = "number_of_guests">
+    <form action="/add-event" method = "POST">
+    <li><label for="name_of_event">Name of Event</label>
+    <input type="text" name = "name_of_event" id = "name_of_event">
+</li>
 
-<label for="room_location">Room Location</label>
-<select name="room_location" id="room_location"> 
-    <option value="fishbowl">Fishbowl</option>
-    <option value="tundra"> Tundra</option>
-    <option value="pirate ship"> Pirate Ship</option>
+<li>
+    <label for="date">Date</label>
+    <input type="date" value = "yyyy-mm-dd" name="date" id="date">
+    </li>
+
+    <li>
+    <label for="number_of_guests">Number of Guest(s)</label>
+    <input type="number" name = "number_of_guests" id = "number_of_guests">
+</li>
+
+<li>
+    <label for="room_location">Room Location</label>
+    <select name="room_location" id="room_location"> 
+        <option disabled = "disabled" selected = "selected" value = > Please select room</option>
+        <option value="fishbowl">Fishbowl</option>
+        <option value="tundra"> Tundra</option>
+        <option value="pirate ship"> Pirate Ship</option>
+
 </select>
+</li>
 
+<li>
+    <label for="description">Description</label>
+    <textarea name="description" id="description" cols="30" rows="2"></textarea>
 
-
+    <button id = "submit">Submit</button>
+</li>
 
 </form>
+
+</ul>
 <ul>
     {% for event in event_list %}
     <li>
