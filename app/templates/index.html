@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
+<form action="/add-event" method = "POST">
+<label for="name_of_event">Name of Event</label>
+<input type="text" name = "name_of_event" id = "name_of_event">
 
+<label for="date">Date</label>
+<input type="date" value = "yyyy-mm-dd" name="date" id="date">
+
+<label for="number_of_guests">Number of Guest(s)</label>
+<input type="number" name = "number_of_guests" id = "number_of_guests">
+
+<label for="room_location">Room Location</label>
+<select name="room_location" id="room_location"> 
+    <option value="fishbowl">Fishbowl</option>
+    <option value="tundra"> Tundra</option>
+    <option value="pirate ship"> Pirate Ship</option>
+</select>
+
+
+
+
+</form>
 <ul>
     {% for event in event_list %}
     <li>
