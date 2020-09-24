@@ -31,6 +31,11 @@
 </li>
 
 <li>
+    <label for="recurring">Recurring?</label>
+    <input type="checkbox" name="recurring" id="recurring">
+</li>
+
+<li>
     <label for="description">Description</label>
     <textarea name="description" id="description" cols="30" rows="2"></textarea>
 
@@ -43,7 +48,12 @@
 <ul>
     {% for event in event_list %}
     <li>
-        {{event.name}}: <br> {{event.description}} <br> {{event.date}} <br> {{event.number_of_guests}} {{event.room_location}}
+        {{event.name}}: <br> {{event.description}} <br> {{event.date}} <br> {{event.number_of_guests}} {{event.room_location}} <br> 
+        {% if event.recurring %}
+        <span>Recurring: &#9989;</span>
+        {% else %}
+        <span>Recurring &#10060;</span>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
